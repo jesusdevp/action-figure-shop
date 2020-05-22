@@ -2,7 +2,7 @@ export const storeProducts = [
   {
     id: 1,
     title: "Arya Stark",
-    img: "img/product-1.png",
+    img: "images/product-1.png",
     price: 30,
     company: "HBO",
     info:
@@ -14,7 +14,7 @@ export const storeProducts = [
   {
     id: 2,
     title: "Goku Super Saiyan",
-    img: "img/product-2.png",
+    img: "images/product-2.png",
     price: 20,
     company: "Toei Animation",
     info:
@@ -26,7 +26,7 @@ export const storeProducts = [
   {
     id: 3,
     title: "Alien - Covenant Movie",
-    img: "img/product-3.png",
+    img: "images/product-3.png",
     price: 25,
     company: "20th Century Fox",
     info:
@@ -38,7 +38,7 @@ export const storeProducts = [
   {
     id: 4,
     title: "Darth Vader",
-    img: "img/product-4.png",
+    img: "images/product-4.png",
     price: 28,
     company: "Walt Disney Pictures",
     info:
@@ -50,7 +50,7 @@ export const storeProducts = [
   {
     id: 5,
     title: "Dr. Strange",
-    img: "img/product-5.png",
+    img: "images/product-5.png",
     price: 24,
     company: "Marvel Studios",
     info:
@@ -62,7 +62,7 @@ export const storeProducts = [
   {
     id: 6,
     title: "Black Panther",
-    img: "img/product-6.png",
+    img: "images/product-6.png",
     price: 17,
     company: "Marvel Studios",
     info:
@@ -74,7 +74,7 @@ export const storeProducts = [
   {
     id: 7,
     title: "Dead Pool",
-    img: "img/product-7.png",
+    img: "images/product-7.png",
     price: 30,
     company: "Marvel Studios",
     info:
@@ -86,7 +86,7 @@ export const storeProducts = [
   {
     id: 8,
     title: "Kratos and Atreus",
-    img: "img/product-8.png",
+    img: "images/product-8.png",
     price: 32,
     company: "Santa Monica Studios",
     info:
@@ -100,7 +100,7 @@ export const storeProducts = [
 export const detailProduct = {
   id: 1,
   title: "Arya Stark",
-  img: "img/product-1.png",
+  img: "images/product-1.png",
   price: 30,
   company: "HBO",
   info:
