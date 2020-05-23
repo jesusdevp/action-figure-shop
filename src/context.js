@@ -5,9 +5,23 @@ const ProductContext = React.createContext();
 
 class ProductProvider extends Component {
   state = {
-    products: storeProducts,
+    products: [],
     detailProduct: detailProduct,
   };
+  setProducts = () => {
+    let tempProducts = [];
+    storeProducts.forEach((item) => {
+      const singleItem = { ...item };
+      tempProducts = [...tempProducts, singleItem];
+    });
+    this.setState(() => {
+      return { products: tempProducts };
+    });
+  };
+
+  componentDidMount() {
+    this.setProducts();
+  }
 
   handleDetail = () => {
     console.log("details");
@@ -18,6 +32,7 @@ class ProductProvider extends Component {
   addToFavorites = () => {
     console.log("add to favorites");
   };
+
   render() {
     return (
       <ProductContext.Provider
