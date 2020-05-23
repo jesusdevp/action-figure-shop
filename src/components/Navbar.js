@@ -18,6 +18,9 @@ export default class Navbar extends Component {
             </Link>
           </li>
         </ul>
+        <Link to="/favorites" className="favorite-nav ml-auto">
+          <i className="fas fa-heart" title="Favorites List" />
+        </Link>
         <Link to="/cart" className="ml-auto">
           <ButtonContainer>
             <span clasname="mr-2">
@@ -37,5 +40,13 @@ const NavWrapper = styled.nav`
     color: var(--mainWhite) !important;
     font-size: 1.3rem;
     text-transform: capitalize !important;
+  }
+  .favorite-nav {
+    color: #f47378;
+    font-size: 1.5rem;
+    transition: all 0.85s linear;
+  }
+  .favorite-nav:hover {
+    color: #ff0000;
   }
 `;

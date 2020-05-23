@@ -24,7 +24,7 @@ export default class Product extends Component {
                 console.log("added to favorites");
               }}
             >
-              <i className="fas fa-heart"></i>
+              <i className="fas fa-heart" title="Add to Favorites" />
             </button>
             {/* Add to Card Button */}
             <button
@@ -40,7 +40,7 @@ export default class Product extends Component {
                   In cart
                 </p>
               ) : (
-                <i className="fas fa-cart-plus" />
+                <i className="fas fa-cart-plus" title="Add to cart" />
               )}
             </button>
           </div>
@@ -95,7 +95,7 @@ const ProductWrapper = styled.div`
     background: transparent;
     border: none;
     color: #f47378;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     transform: translate(-100%, 100%);
     transition: all 0.85s linear;
   }

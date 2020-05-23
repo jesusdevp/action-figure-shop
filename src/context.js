@@ -15,6 +15,9 @@ class ProductProvider extends Component {
   addToCart = () => {
     console.log("add to cart");
   };
+  addToFavorites = () => {
+    console.log("add to favorites");
+  };
   render() {
     return (
       <ProductContext.Provider
@@ -22,6 +25,7 @@ class ProductProvider extends Component {
           ...this.state,
           handleDetail: this.handleDetail,
           addToCart: this.addToCart,
+          addTofavorites: this.addToFavorites,
         }}
       >
         {this.props.children}
