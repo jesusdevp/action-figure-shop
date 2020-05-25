@@ -43,7 +43,7 @@ const NavWrapper = styled.nav`
   }
   .favorite-nav {
     color: #f47378;
-    font-size: 1.5rem;
+    font-size: 2rem;
     transition: all 0.85s linear;
   }
   .favorite-nav:hover {

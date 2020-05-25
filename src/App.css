@@ -4,6 +4,8 @@
   --mainWhite: #f3f3f3;
   --mainDark: #232428;
   --mainGray: rgba(13, 241, 230, 0.5);
+  --mainRed: #da1f28;
+  --mainYellow: #ffa400;
 }
 
 body {
