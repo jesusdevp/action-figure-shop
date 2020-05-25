@@ -8,6 +8,10 @@ class ProductProvider extends Component {
     products: [],
     detailProduct: detailProduct,
   };
+
+  componentDidMount() {
+    this.setProducts();
+  }
   setProducts = () => {
     let tempProducts = [];
     storeProducts.forEach((item) => {
@@ -19,12 +23,16 @@ class ProductProvider extends Component {
     });
   };
 
-  componentDidMount() {
-    this.setProducts();
-  }
+  getItem = (id) => {
+    const product = this.state.products.find((item) => item.id === id);
+    return product;
+  };
 
-  handleDetail = () => {
-    console.log("details");
+  handleDetail = (id) => {
+    const product = this.getItem(id);
+    this.setState(() => {
+      return { detailProduct: product };
+    });
   };
   addToCart = (id) => {
     console.log(`add to cart ${id}`);
