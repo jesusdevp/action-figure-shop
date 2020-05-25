@@ -27,7 +27,14 @@ export default class Product extends Component {
                     value.addToFavorites(id);
                   }}
                 >
-                  <i className="fas fa-heart" title="Add to Favorites" />
+                  {inFavorites ? (
+                    <i
+                      className="fas fa-heart btn-active"
+                      title="Added to Favorites"
+                    />
+                  ) : (
+                    <i className="fas fa-heart" title="Add to Favorites" />
+                  )}
                 </button>
                 {/* Add to Card Button */}
                 <button
@@ -132,6 +139,10 @@ const ProductWrapper = styled.div`
     color: #ed1c24;
   }
   .favorites-btn:active {
+    border: none;
+    color: #ff0000;
+  }
+  .btn-active {
     border: none;
     color: #ff0000;
   }

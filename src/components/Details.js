@@ -38,11 +38,14 @@ export default class Details extends Component {
                       className="favorites-btn"
                       disabled={inFavorites ? true : false}
                       onClick={() => {
-                        value.addTofavorites(id);
+                        value.addToFavorites(id);
                       }}
                     >
                       {inFavorites ? (
-                        "inFavorites"
+                        <i
+                          className="fas fa-heart btn-active"
+                          title="Added to Favorites"
+                        />
                       ) : (
                         <i className="fas fa-heart" title="Add to Favorites" />
                       )}
@@ -123,6 +126,10 @@ const ImgWrapper = styled.div`
     color: #ed1c24;
   }
   .favorites-btn:active {
+    border: none;
+    color: #ff0000;
+  }
+  .btn-active {
     border: none;
     color: #ff0000;
   }

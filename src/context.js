@@ -7,6 +7,8 @@ class ProductProvider extends Component {
   state = {
     products: [],
     detailProduct: detailProduct,
+    cart: [],
+    favorites: [],
   };
 
   componentDidMount() {
@@ -35,10 +37,43 @@ class ProductProvider extends Component {
     });
   };
   addToCart = (id) => {
-    console.log(`add to cart ${id}`);
+    let tempProducts = [...this.state.products];
+    const index = tempProducts.indexOf(this.getItem(id));
+    const product = tempProducts[index];
+    product.inCart = true;
+    product.count = 1;
+    const price = product.price;
+    product.total = price;
+
+    this.setState(
+      () => {
+        return { products: tempProducts, cart: [...this.state.cart, product] };
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
   };
   addToFavorites = (id) => {
-    console.log(`add to favorites ${id}`);
+    let tempProducts = [...this.state.products];
+    const index = tempProducts.indexOf(this.getItem(id));
+    const product = tempProducts[index];
+    product.inFavorites = true;
+    product.count = 1;
+    const price = product.price;
+    product.total = price;
+
+    this.setState(
+      () => {
+        return {
+          products: tempProducts,
+          favorites: [...this.state.favorites, product],
+        };
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
   };
 
   render() {
@@ -48,7 +83,7 @@ class ProductProvider extends Component {
           ...this.state,
           handleDetail: this.handleDetail,
           addToCart: this.addToCart,
-          addTofavorites: this.addToFavorites,
+          addToFavorites: this.addToFavorites,
         }}
       >
         {this.props.children}
