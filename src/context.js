@@ -26,11 +26,11 @@ class ProductProvider extends Component {
   handleDetail = () => {
     console.log("details");
   };
-  addToCart = () => {
-    console.log("add to cart");
+  addToCart = (id) => {
+    console.log(`add to cart ${id}`);
   };
-  addToFavorites = () => {
-    console.log("add to favorites");
+  addToFavorites = (id) => {
+    console.log(`add to favorites ${id}`);
   };
 
   render() {
