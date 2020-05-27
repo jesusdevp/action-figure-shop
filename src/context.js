@@ -11,6 +11,9 @@ class ProductProvider extends Component {
     favorites: [],
     modalOpen: false,
     modalProduct: detailProduct,
+    cartSubTotal: 0,
+    cartTax: 0,
+    cartTotal: 0,
   };
 
   componentDidMount() {
@@ -91,6 +94,22 @@ class ProductProvider extends Component {
     });
   };
 
+  increment = (id) => {
+    console.log("increment method");
+  };
+
+  decrement = (id) => {
+    console.log("decrement method");
+  };
+
+  removeItem = (id) => {
+    console.log("item removed");
+  };
+
+  clearCart = () => {
+    console.log("cart was cleared");
+  };
+
   render() {
     return (
       <ProductContext.Provider
@@ -101,6 +120,10 @@ class ProductProvider extends Component {
           addToFavorites: this.addToFavorites,
           openModal: this.openModal,
           closeModal: this.closeModal,
+          increment: this.increment,
+          decrement: this.decrement,
+          remove: this.removeItem,
+          clear: this.clearCart,
         }}
       >
         {this.props.children}
