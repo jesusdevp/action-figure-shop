@@ -48,5 +48,9 @@ const NavWrapper = styled.nav`
   }
   .favorite-nav:hover {
     color: #ff0000;
+    @media (max-width: 576px) {
+      .navbar-nav {
+        flex-direction: row !important;
+  
   }
 `;

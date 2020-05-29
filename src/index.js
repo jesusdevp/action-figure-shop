@@ -11,7 +11,6 @@ ReactDOM.render(
     <Router>
       <App />
     </Router>
-    ,
   </ProductProvider>,
   document.getElementById("root")
 );
