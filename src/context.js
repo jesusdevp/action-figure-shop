@@ -14,6 +14,7 @@ class ProductProvider extends Component {
     cartSubTotal: 0,
     cartTax: 0,
     cartTotal: 0,
+    favoritesTotal: 0,
   };
 
   componentDidMount() {
@@ -67,17 +68,12 @@ class ProductProvider extends Component {
     const price = product.price;
     product.total = price;
 
-    this.setState(
-      () => {
-        return {
-          products: tempProducts,
-          favorites: [...this.state.favorites, product],
-        };
-      },
-      () => {
-        console.log(this.state);
-      }
-    );
+    this.setState(() => {
+      return {
+        products: [...tempProducts],
+        favorites: [...this.state.favorites, product],
+      };
+    }, this.addFavoritesTotals);
   };
 
   openModal = (id) => {
@@ -141,6 +137,15 @@ class ProductProvider extends Component {
       total,
     };
   };
+  getFavorites = () => {
+    let total = 0;
+    this.state.favorites.map((item) => (total += item.total));
+
+    const totalFavorites = total;
+    return {
+      totalFavorites,
+    };
+  };
   addTotals = () => {
     const totals = this.getTotals();
     this.setState(
@@ -149,6 +154,19 @@ class ProductProvider extends Component {
           cartSubTotal: totals.subTotal,
           cartTax: totals.tax,
           cartTotal: totals.total,
+        };
+      },
+      () => {
+        // console.log(this.state);
+      }
+    );
+  };
+  addFavoritesTotals = () => {
+    const totals = this.getFavorites();
+    this.setState(
+      () => {
+        return {
+          favoritesTotal: totals.total,
         };
       },
       () => {
@@ -179,6 +197,28 @@ class ProductProvider extends Component {
     }, this.addTotals);
   };
 
+  removeFavorite = (id) => {
+    let tempProducts = [...this.state.products];
+    let tempFavorites = [...this.state.favorites];
+
+    const index = tempProducts.indexOf(this.getItem(id));
+    let removedProduct = tempProducts[index];
+    removedProduct.inFavorites = false;
+
+    removedProduct.total = 0;
+
+    tempFavorites = tempFavorites.filter((item) => {
+      return item.id !== id;
+    });
+
+    this.setState(() => {
+      return {
+        favorites: [...tempFavorites],
+        products: [...tempProducts],
+      };
+    }, this.addFavoritesTotals);
+  };
+
   clearCart = () => {
     this.setState(
       () => {
@@ -187,6 +227,18 @@ class ProductProvider extends Component {
       () => {
         this.setProducts();
         this.addTotals();
+      }
+    );
+  };
+
+  clearFavorites = () => {
+    this.setState(
+      () => {
+        return { favorites: [] };
+      },
+      () => {
+        this.setProducts();
+        this.addFavoritesTotals();
       }
     );
   };
@@ -205,6 +257,8 @@ class ProductProvider extends Component {
           decrement: this.decrement,
           removeItem: this.removeItem,
           clearCart: this.clearCart,
+          removeFavorite: this.removeFavorite,
+          clearFavorites: this.clearFavorites,
         }}
       >
         {this.props.children}
